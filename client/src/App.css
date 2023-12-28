@@ -1,0 +1,42 @@
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.container {
+  width: 100vw;
+  height: 70vh;
+  display: grid;
+  justify-content: center;
+  grid-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 30%));
+  padding: 1em 2em;
+  box-sizing: border-box;
+}
+
+.column {
+  background-color: black;
+  border-radius: 10px;
+  padding: 0.5em;
+}
+
+.card-list {
+  text-align: start;
+}
+
+.card-text {
+  background-color: darkslategrey;
+  border-radius: 5px;
+  padding: 3px 5px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+.card-list p:hover {
+  cursor: pointer;
+}
+
+.col-header {
+  margin: 0;
+}
