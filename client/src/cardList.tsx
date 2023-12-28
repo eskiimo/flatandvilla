@@ -9,7 +9,7 @@ function CardList({ list }) {
   useEffect(() => {
     const loadCards = async () => {
       setCardLoading(true);
-      await fetch(`http://localhost:5000/cards/cardsbyid`, {
+      await fetch(`https://flatandvila.onrender.com/cards/cardsbyid`, {
         method: "POST",
         body: JSON.stringify({ list }),
         headers: {

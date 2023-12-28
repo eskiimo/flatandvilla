@@ -8,7 +8,7 @@ function Home() {
   const context = useCardContext();
 
   const getColumns = async () => {
-    await fetch("http://localhost:5000/columns")
+    await fetch("https://flatandvila.onrender.com/columns")
       .then((res) => res.json())
       .then((result) => {
         setColumns(result.columns);
@@ -21,7 +21,7 @@ function Home() {
 
   // eslint-disable-next-line no-unused-vars
   const switchCol = async (to) => {
-    await fetch(`http://localhost:5000/cards/${context.item}`, {
+    await fetch(`https://flatandvila.onrender.com/cards/${context.item}`, {
       method: "delete",
     })
       .then((res) => res.json())
@@ -32,7 +32,7 @@ function Home() {
       column: to,
     });
     console.log("body:", newBody);
-    await fetch(`http://localhost:5000/cards/new`, {
+    await fetch(`https://flatandvila.onrender.com/cards/new`, {
       method: "POST",
       body: newBody,
       headers: {
