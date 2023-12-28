@@ -73,43 +73,6 @@ const createCard = async (req, res, next) => {
   res.status(201).json({ newCard });
 };
 
-const move = async (req, res, next) => {
-  const { item, from, to } = req.body;
-
-  let org_from;
-  try {
-    org_from = await Column.findById(from);
-  } catch (e) {
-    console.log(e);
-  }
-  let org_to;
-  try {
-    org_to = await Column.findById(to);
-  } catch (e) {
-    console.log(e);
-  }
-
-  let org_item;
-  try {
-    org_item = await Card.findById(item);
-  } catch (e) {
-    console.log(e);
-  }
-  try {
-    const session = await mongoose.startSession();
-    session.startTransaction();
-
-    org_from.cards.filter((card) => card._id !== org_item);
-    console.log("checking from:", org_item);
-    org_item.column = org_to;
-    await org_from.save({ session: session });
-    await session.commitTransaction();
-  } catch (e) {
-    console.log(e);
-  }
-  res.status(200).json({ message: "done" });
-};
-
 const deleteCard = async (req, res, next) => {
   const id = req.params.id;
   let card;
@@ -127,5 +90,4 @@ exports.createCard = createCard;
 exports.getAllCards = getAllCards;
 exports.getCardById = getCardById;
 exports.getCardsbyIds = getCardsbyIds;
-exports.move = move;
 exports.deleteCard = deleteCard;

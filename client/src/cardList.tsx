@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card } from "./interfaces";
 import { useCardContext } from "./context/cardContext";
-import { useSwitchHook } from "./context/switch-hook";
 
 function CardList({ list }) {
   const [cardsToDis, setCardsToDis] = useState([]);
@@ -41,7 +39,7 @@ function CardList({ list }) {
       {cardLoading ? (
         <p>loading..</p>
       ) : (
-        cardsToDis.map((card: Card) => {
+        cardsToDis.map((card: any) => {
           return (
             <p
               draggable="true"
@@ -57,20 +55,6 @@ function CardList({ list }) {
           );
         })
       )}
-      {/* {list.map((card: Card, index: any) => {
-        return (
-          <p
-            className="card-text"
-            draggable="true"
-            id={card._id}
-            onDragStart={dragStart}
-            key={card._id}
-            data-col={card.column}
-          >
-            {card.name}
-          </p>
-        );
-      })} */}
     </div>
   );
 }

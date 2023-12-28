@@ -32,7 +32,7 @@ function Home() {
       column: to,
     });
     console.log("body:", newBody);
-    await fetch(`https://localhost:5000/cards`, {
+    await fetch(`http://localhost:5000/cards/new`, {
       method: "POST",
       body: newBody,
       headers: {
